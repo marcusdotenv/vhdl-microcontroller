@@ -129,10 +129,10 @@ begin
 				ld_RP <= '0';
 				ld_MemDados <= '0';
 				pc_increment <= '0'; 
-				sel_mux5_1 <= "000";
-				sel_mux7_1 <= "000";
-				sel_mux7_2 <= "000";
-				sel_ULA <= "000";
+				sel_mux5_1 <= "ZZZ";
+				sel_mux7_1 <= "ZZZ";
+				sel_mux7_2 <= "ZZZ";
+				sel_ULA <= "ZZZ";
 				wren <= '0';
 
 			when busca=>
@@ -145,14 +145,14 @@ begin
 				ld_R6 <= '0';
 				ld_PC <= '1';
 				ld_RI <= '1';
-				ld_RE <= '0'; 
+				ld_RE <= '1'; 
 				ld_RS <= '0';
 				ld_RP <= '1';
 				pc_increment <= '1'; 
-				sel_mux5_1 <= "000";
-				sel_mux7_1 <= "000";
-				sel_mux7_2 <= "000";
-				sel_ULA <= "000";
+				sel_mux5_1 <= "ZZZ";
+				sel_mux7_1 <= "ZZZ";
+				sel_mux7_2 <= "ZZZ";
+				sel_ULA <= "ZZZ";
 				wren <= '0';
 
 			when decodificar=>
@@ -168,10 +168,10 @@ begin
 				ld_RE <= '0'; 
 				ld_RS <= '0';
 				pc_increment <= '0'; 
-				sel_mux5_1 <= "000";
-				sel_mux7_1 <= "000";
-				sel_mux7_2 <= "000";
-				sel_ULA <= "000";
+				sel_mux5_1 <= "ZZZ";
+				sel_mux7_1 <= "ZZZ";
+				sel_mux7_2 <= "ZZZ";
+				sel_ULA <= "ZZZ";
 				wren <= '0';	
 					
 			when nop=>
