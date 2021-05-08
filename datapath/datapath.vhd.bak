@@ -1,0 +1,60 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity datapath is
+	port(
+		RIout : out std_LOGIC_VECTOR(15 downto 0);
+		entrada : in std_logic_vector(7 downto 0);
+		saida : out std_logic_vector(7 downto 0);
+		ldR0, ldR1, ldR2, ldR3, ldPC, ldIR, ldFlag, ldRin, ldRout, selmux3, incrementarPC, ativarDados, wren : in std_logic;
+		selULA : in std_logic_vector (2 downto 0);
+		selmux0 : in std_logic_vector(2 downto 0);
+		selmux1, selmux2 : in std_logic_vector(1 downto 0);
+		reset, clock : in std_logic;
+		saida8bits : out std_LOGIC_VECTOR(7 downto 0);
+		flag : out std_LOGIC
+	);
+end entity;
+
+architecture rtl_datapath of datapath is 
+
+	component registradorde8bits
+		port(
+			entradadoRegistrador : in std_logic_vector(7 downto 0);
+			clock_signal, loadDoRegistrador : in std_logic;
+			saidadoRegistrador : out std_logic_vector(7 downto 0)
+		);
+	end component registradorde8bits;
+	
+
+begin
+--	
+   	Regentrada : registradorde8bits port map (entrada, clock, ldRin, saidaRin);
+--		
+--		mux0 : mux5pra1 port map (saidaIR(7 downto 0), saidaRin, saidamDados, saidaULA, mux1out, selmux0, mux0out);
+--		
+--		r0 : registradorde8bits port map (mux0out, clock, ldr0, saidar0);
+--		r1 : registradorde8bits port map (mux0out, clock, ldr1, saidar1);
+--		r2 : registradorde8bits port map (mux0out, clock, ldr2, saidar2);
+--		r3 : registradorde8bits port map (mux0out, clock, ldr3, saidar3);
+--		
+--		mux1 : mux4pra1 port map (saidar0, saidar1, saidar2, saidar3, selmux1, mux1out);
+--		mux2 : mux4pra1 port map (saidar0, saidar1, saidar2, saidar3, selmux2, mux2out);
+--		
+--		mux3 : mux2pra1 port map (saidaIR(7 downto 0), mux2out, selmux3, mux3out);
+--		
+--		alu : ula port map (mux1out, mux3out, selULA, saidaULA, flag);
+--		
+--		Regsaida : registradorde8bits port map (mux1out, clock, ldrout, saidaReg);
+--	
+--		memoriaDados : memoriadeDados port map (saidaIR(7 downto 0), clock, mux2out, wren, saidamDados);
+--		memoriaPrograma : memoriaDePrograma port map(saidaPC, clock, saidamPrograma);
+--		
+--		contadordeprograma : PC port map (saidaIR(9 downto 0), saidaPC, ldPC, clock, reset, incrementarPC);
+--		regInstrucao : registradorde16bits port map (saidamPrograma, clock, ldIR, saidaIR);
+--		
+--		saida <= saidaReg;
+--		RIout <= saidaIR;
+--		saida8bits <= "0000000"&ldrout;
+end rtl_datapath;

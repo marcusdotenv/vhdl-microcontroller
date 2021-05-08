@@ -1,0 +1,1010 @@
+Analysis & Synthesis report for microgeral
+Fri May 07 00:05:13 2021
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |microgeral|controlador:controler|state
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component|altsyncram_vsa1:auto_generated
+ 16. Source assignments for datapath:pathdata|memoriaDePrograma:memoriaPrograma|altsyncram:altsyncram_component|altsyncram_6091:auto_generated
+ 17. Parameter Settings for User Entity Instance: datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component
+ 18. Parameter Settings for User Entity Instance: datapath:pathdata|memoriaDePrograma:memoriaPrograma|altsyncram:altsyncram_component
+ 19. altsyncram Parameter Settings by Entity Instance
+ 20. Port Connectivity Checks: "datapath:pathdata|multi2:mux3"
+ 21. Port Connectivity Checks: "controlador:controler"
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri May 07 00:05:13 2021           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; microgeral                                      ;
+; Top-level Entity Name              ; microgeral                                      ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 641                                             ;
+;     Total combinational functions  ; 631                                             ;
+;     Dedicated logic registers      ; 267                                             ;
+; Total registers                    ; 267                                             ;
+; Total pins                         ; 34                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 4,128                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C5AF256A7       ;                    ;
+; Top-level entity name                                                      ; microgeral         ; microgeral         ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                             ;
++--------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                 ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                         ; Library ;
++--------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------+---------+
+; datapath/comparador/comparador.vhd               ; yes             ; User VHDL File               ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/comparador/comparador.vhd               ;         ;
+; datapath/pilhareg/pilhareg.vhd                   ; yes             ; User VHDL File               ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/pilhareg/pilhareg.vhd                   ;         ;
+; microgeral.vhd                                   ; yes             ; User VHDL File               ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/microgeral.vhd                                   ;         ;
+; controlador/controlador.vhd                      ; yes             ; User VHDL File               ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/controlador/controlador.vhd                      ;         ;
+; datapath/datapath.vhd                            ; yes             ; User VHDL File               ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/datapath.vhd                            ;         ;
+; datapath/ULA/ULA.vhd                             ; yes             ; User VHDL File               ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/ULA/ULA.vhd                             ;         ;
+; datapath/PC/PC.vhd                               ; yes             ; User VHDL File               ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/PC/PC.vhd                               ;         ;
+; datapath/registrador16bits/registrador16bits.vhd ; yes             ; User VHDL File               ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/registrador16bits/registrador16bits.vhd ;         ;
+; datapath/MemoriadeDados/MemoriadeDados.vhd       ; yes             ; User Wizard-Generated File   ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/MemoriadeDados/MemoriadeDados.vhd       ;         ;
+; datapath/memoriaDePrograma/memoriaDePrograma.vhd ; yes             ; User Wizard-Generated File   ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/memoriaDePrograma/memoriaDePrograma.vhd ;         ;
+; datapath/multi5/multi5.vhd                       ; yes             ; User VHDL File               ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/multi5/multi5.vhd                       ;         ;
+; datapath/multi2/multi2.vhd                       ; yes             ; User VHDL File               ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/multi2/multi2.vhd                       ;         ;
+; datapath/multi7/multi7.vhd                       ; yes             ; User VHDL File               ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/multi7/multi7.vhd                       ;         ;
+; altsyncram.tdf                                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf                                     ;         ;
+; stratix_ram_block.inc                            ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc                              ;         ;
+; lpm_mux.inc                                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc                                        ;         ;
+; lpm_decode.inc                                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc                                     ;         ;
+; aglobal130.inc                                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                                     ;         ;
+; a_rdenreg.inc                                    ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc                                      ;         ;
+; altrom.inc                                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc                                         ;         ;
+; altram.inc                                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc                                         ;         ;
+; altdpram.inc                                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc                                       ;         ;
+; db/altsyncram_vsa1.tdf                           ; yes             ; Auto-Generated Megafunction  ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/db/altsyncram_vsa1.tdf                           ;         ;
+; db/altsyncram_6091.tdf                           ; yes             ; Auto-Generated Megafunction  ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/db/altsyncram_6091.tdf                           ;         ;
++--------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 641   ;
+;                                             ;       ;
+; Total combinational functions               ; 631   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 278   ;
+;     -- 3 input functions                    ; 116   ;
+;     -- <=2 input functions                  ; 237   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 578   ;
+;     -- arithmetic mode                      ; 53    ;
+;                                             ;       ;
+; Total registers                             ; 267   ;
+;     -- Dedicated logic registers            ; 267   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 34    ;
+; Total memory bits                           ; 4128  ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; clock ;
+; Maximum fan-out                             ; 299   ;
+; Total fan-out                               ; 2801  ;
+; Average fan-out                             ; 2.91  ;
++---------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                      ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                            ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |microgeral                                  ; 631 (1)           ; 267 (0)      ; 4128        ; 0            ; 0       ; 0         ; 34   ; 0            ; |microgeral                                                                                                                    ; work         ;
+;    |controlador:controler|                   ; 135 (135)         ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|controlador:controler                                                                                              ; work         ;
+;    |datapath:pathdata|                       ; 495 (0)           ; 242 (0)      ; 4128        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata                                                                                                  ; work         ;
+;       |MemoriadeDados:memoriaDados|          ; 0 (0)             ; 0 (0)        ; 32          ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|MemoriadeDados:memoriaDados                                                                      ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 32          ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component                                      ; work         ;
+;             |altsyncram_vsa1:auto_generated| ; 0 (0)             ; 0 (0)        ; 32          ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component|altsyncram_vsa1:auto_generated       ; work         ;
+;       |PC:contadordeprograma|                ; 9 (9)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|PC:contadordeprograma                                                                            ; work         ;
+;       |ULA:alu|                              ; 116 (116)         ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|ULA:alu                                                                                          ; work         ;
+;       |comparador:compare|                   ; 46 (46)           ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|comparador:compare                                                                               ; work         ;
+;       |memoriaDePrograma:memoriaPrograma|    ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|memoriaDePrograma:memoriaPrograma                                                                ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|memoriaDePrograma:memoriaPrograma|altsyncram:altsyncram_component                                ; work         ;
+;             |altsyncram_6091:auto_generated| ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|memoriaDePrograma:memoriaPrograma|altsyncram:altsyncram_component|altsyncram_6091:auto_generated ; work         ;
+;       |multi2:mux3|                          ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|multi2:mux3                                                                                      ; work         ;
+;       |multi5:mux1|                          ; 32 (32)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|multi5:mux1                                                                                      ; work         ;
+;       |multi7:mux7_registers1|               ; 66 (66)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|multi7:mux7_registers1                                                                           ; work         ;
+;       |multi7:mux7_registers2|               ; 66 (66)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|multi7:mux7_registers2                                                                           ; work         ;
+;       |registrador16bits:RSaida|             ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|registrador16bits:RSaida                                                                         ; work         ;
+;       |registrador16bits:inRegister|         ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|registrador16bits:inRegister                                                                     ; work         ;
+;       |registrador16bits:r0|                 ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|registrador16bits:r0                                                                             ; work         ;
+;       |registrador16bits:r1|                 ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|registrador16bits:r1                                                                             ; work         ;
+;       |registrador16bits:r2|                 ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|registrador16bits:r2                                                                             ; work         ;
+;       |registrador16bits:r3|                 ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|registrador16bits:r3                                                                             ; work         ;
+;       |registrador16bits:r4|                 ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|registrador16bits:r4                                                                             ; work         ;
+;       |registrador16bits:r5|                 ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|registrador16bits:r5                                                                             ; work         ;
+;       |registrador16bits:r6|                 ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|registrador16bits:r6                                                                             ; work         ;
+;       |registrador16bits:regInstrucao|       ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microgeral|datapath:pathdata|registrador16bits:regInstrucao                                                                   ; work         ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                              ;
++-------------------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------+
+; Name                                                                                                                          ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                   ;
++-------------------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------+
+; datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component|altsyncram_vsa1:auto_generated|ALTSYNCRAM       ; AUTO ; Single Port ; 256          ; 16           ; --           ; --           ; 4096 ; None                  ;
+; datapath:pathdata|memoriaDePrograma:memoriaPrograma|altsyncram:altsyncram_component|altsyncram_6091:auto_generated|ALTSYNCRAM ; AUTO ; ROM         ; 256          ; 16           ; --           ; --           ; 4096 ; memoriaDePrograma.mif ;
++-------------------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                                  ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                 ; IP Include File                                                                                      ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+; Altera ; RAM: 1-PORT  ; N/A     ; N/A          ; N/A          ; |microgeral|datapath:pathdata|MemoriadeDados:memoriaDados       ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/MemoriadeDados/MemoriadeDados.vhd       ;
+; Altera ; ROM: 1-PORT  ; N/A     ; N/A          ; N/A          ; |microgeral|datapath:pathdata|memoriaDePrograma:memoriaPrograma ; C:/Users/jarna/OneDrive/햞ea de Trabalho/microgeral/datapath/memoriaDePrograma/memoriaDePrograma.vhd ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |microgeral|controlador:controler|state                                                                                                                                                                                                                                                                                         ;
++-------------------+------------+-----------+-----------+-----------+----------+-----------+-----------+-----------+----------+----------+------------+-----------+-----------+-----------+-----------+------------+------------+------------+------------+-----------+------------+-----------+-------------------+-------------+---------------+
+; Name              ; state.MOVS ; state.MOV ; state.mbl ; state.mbh ; state.jz ; state.ret ; state.jmp ; state.jme ; state.sw ; state.lw ; state.sltu ; state.slt ; state.jma ; state.sub ; state.add ; state.srai ; state.srli ; state.slli ; state.xorr ; state.orr ; state.andd ; state.nop ; state.decodificar ; state.busca ; state.initial ;
++-------------------+------------+-----------+-----------+-----------+----------+-----------+-----------+-----------+----------+----------+------------+-----------+-----------+-----------+-----------+------------+------------+------------+------------+-----------+------------+-----------+-------------------+-------------+---------------+
+; state.initial     ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 0             ;
+; state.busca       ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 1           ; 1             ;
+; state.decodificar ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 1                 ; 0           ; 1             ;
+; state.nop         ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 1         ; 0                 ; 0           ; 1             ;
+; state.andd        ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 1          ; 0         ; 0                 ; 0           ; 1             ;
+; state.orr         ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 1         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.xorr        ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 1          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.slli        ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 1          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.srli        ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 1          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.srai        ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.add         ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 1         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.sub         ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 1         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.jma         ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 1         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.slt         ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 1         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.sltu        ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 1          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.lw          ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 1        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.sw          ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 1        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.jme         ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 1         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.jmp         ; 0          ; 0         ; 0         ; 0         ; 0        ; 0         ; 1         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.ret         ; 0          ; 0         ; 0         ; 0         ; 0        ; 1         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.jz          ; 0          ; 0         ; 0         ; 0         ; 1        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.mbh         ; 0          ; 0         ; 0         ; 1         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.mbl         ; 0          ; 0         ; 1         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.MOV         ; 0          ; 1         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
+; state.MOVS        ; 1          ; 0         ; 0         ; 0         ; 0        ; 0         ; 0         ; 0         ; 0        ; 0        ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0          ; 0         ; 0                 ; 0           ; 1             ;
++-------------------+------------+-----------+-----------+-----------+----------+-----------+-----------+-----------+----------+----------+------------+-----------+-----------+-----------+-----------+------------+------------+------------+------------+-----------+------------+-----------+-------------------+-------------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                             ;
++-----------------------------------------------------+----------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal              ; Free of Timing Hazards ;
++-----------------------------------------------------+----------------------------------+------------------------+
+; controlador:controler|ld_RS                         ; controlador:controler|WideOr12   ; yes                    ;
+; controlador:controler|sel_mux7_2[0]                 ; controlador:controler|WideOr24   ; yes                    ;
+; controlador:controler|sel_mux7_2[2]                 ; controlador:controler|WideOr24   ; yes                    ;
+; controlador:controler|sel_mux7_2[1]                 ; controlador:controler|WideOr24   ; yes                    ;
+; controlador:controler|ld_R5                         ; controlador:controler|Selector52 ; yes                    ;
+; controlador:controler|ld_R2                         ; controlador:controler|Selector52 ; yes                    ;
+; controlador:controler|ld_R1                         ; controlador:controler|Selector52 ; yes                    ;
+; controlador:controler|ld_R0                         ; controlador:controler|Selector52 ; yes                    ;
+; controlador:controler|ld_R3                         ; controlador:controler|Selector52 ; yes                    ;
+; controlador:controler|ld_R4                         ; controlador:controler|Selector52 ; yes                    ;
+; controlador:controler|ld_R6                         ; controlador:controler|Selector52 ; yes                    ;
+; controlador:controler|ld_RI                         ; controlador:controler|WideOr7    ; yes                    ;
+; controlador:controler|bau[5]                        ; controlador:controler|Selector42 ; yes                    ;
+; controlador:controler|sel_mux5_1[1]                 ; controlador:controler|Selector26 ; yes                    ;
+; controlador:controler|sel_mux5_1[0]                 ; controlador:controler|Selector26 ; yes                    ;
+; controlador:controler|sel_mux5_1[2]                 ; controlador:controler|Selector26 ; yes                    ;
+; controlador:controler|bau[2]                        ; controlador:controler|Selector42 ; yes                    ;
+; controlador:controler|bau[1]                        ; controlador:controler|Selector42 ; yes                    ;
+; controlador:controler|bau[0]                        ; controlador:controler|Selector42 ; yes                    ;
+; controlador:controler|bau[3]                        ; controlador:controler|Selector42 ; yes                    ;
+; controlador:controler|bau[4]                        ; controlador:controler|Selector42 ; yes                    ;
+; controlador:controler|bau[6]                        ; controlador:controler|Selector42 ; yes                    ;
+; controlador:controler|sel_mux7_1[0]                 ; controlador:controler|WideOr22   ; yes                    ;
+; controlador:controler|sel_mux7_1[2]                 ; controlador:controler|WideOr22   ; yes                    ;
+; controlador:controler|sel_mux7_1[1]                 ; controlador:controler|WideOr22   ; yes                    ;
+; controlador:controler|ld_RE                         ; controlador:controler|Selector12 ; yes                    ;
+; controlador:controler|ld_MemDados                   ; controlador:controler|WideOr14   ; yes                    ;
+; controlador:controler|sel_ULA[0]                    ; controlador:controler|WideOr27   ; yes                    ;
+; controlador:controler|sel_ULA[2]                    ; controlador:controler|WideOr27   ; yes                    ;
+; controlador:controler|sel_ULA[1]                    ; controlador:controler|WideOr27   ; yes                    ;
+; controlador:controler|ld_PC                         ; controlador:controler|WideOr5    ; yes                    ;
+; controlador:controler|pc_increment                  ; controlador:controler|WideOr15   ; yes                    ;
+; Number of user-specified and inferred latches = 32  ;                                  ;                        ;
++-----------------------------------------------------+----------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------+
+; Registers Removed During Synthesis                             ;
++-------------------------------------------+--------------------+
+; Register name                             ; Reason for Removal ;
++-------------------------------------------+--------------------+
+; datapath:pathdata|pilhareg:Rp|saida[0..7] ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[0]~en     ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[1]~en     ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[2]~en     ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[3]~en     ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[4]~en     ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[5]~en     ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[6]~en     ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[7]~en     ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[8]~en     ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[9]~en     ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[10]~en    ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[11]~en    ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[12]~en    ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[13]~en    ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[14]~en    ; Lost fanout        ;
+; datapath:pathdata|ULA:alu|saida[15]~en    ; Lost fanout        ;
+; Total Number of Removed Registers = 24    ;                    ;
++-------------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 267   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 40    ;
+; Number of registers using Asynchronous Clear ; 25    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 8     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microgeral|datapath:pathdata|registrador16bits:RSaida|saida[15]      ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microgeral|datapath:pathdata|registrador16bits:regInstrucao|saida[4] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microgeral|datapath:pathdata|registrador16bits:r0|saida[5]           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microgeral|datapath:pathdata|registrador16bits:r1|saida[5]           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microgeral|datapath:pathdata|registrador16bits:r2|saida[5]           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microgeral|datapath:pathdata|registrador16bits:r3|saida[5]           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microgeral|datapath:pathdata|registrador16bits:r4|saida[15]          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microgeral|datapath:pathdata|registrador16bits:r5|saida[7]           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microgeral|datapath:pathdata|registrador16bits:r6|saida[13]          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microgeral|datapath:pathdata|registrador16bits:inRegister|saida[6]   ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 64 LEs               ; 16 LEs                 ; Yes        ; |microgeral|datapath:pathdata|multi7:mux7_registers2|saidamux7[13]    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |microgeral|datapath:pathdata|PC:contadordeprograma|PC_out[2]         ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 48 LEs               ; 32 LEs                 ; Yes        ; |microgeral|datapath:pathdata|multi5:mux1|saida[12]                   ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |microgeral|datapath:pathdata|ULA:alu|saida[11]~reg0                  ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 64 LEs               ; 16 LEs                 ; Yes        ; |microgeral|datapath:pathdata|multi7:mux7_registers1|saidamux7[5]     ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |microgeral|controlador:controler|Selector31                          ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |microgeral|controlador:controler|Selector33                          ;
+; 12:1               ; 7 bits    ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; No         ; |microgeral|controlador:controler|Selector49                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component|altsyncram_vsa1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                    ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                     ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for datapath:pathdata|memoriaDePrograma:memoriaPrograma|altsyncram:altsyncram_component|altsyncram_6091:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                          ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                           ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                           ;
++------------------------------------+----------------------+----------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                        ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                   ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                 ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                        ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                                        ;
+; WIDTH_A                            ; 16                   ; Signed Integer                                                 ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                                 ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                                 ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                        ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                        ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                        ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                        ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                        ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                        ;
+; WIDTH_B                            ; 1                    ; Untyped                                                        ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                        ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                        ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                        ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                        ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                        ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                        ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                        ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                        ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                        ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                        ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                        ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                        ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                        ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                 ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                        ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                        ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                        ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                        ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                        ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                        ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                        ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                        ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                        ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                        ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                                                        ;
+; CBXI_PARAMETER                     ; altsyncram_vsa1      ; Untyped                                                        ;
++------------------------------------+----------------------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:pathdata|memoriaDePrograma:memoriaPrograma|altsyncram:altsyncram_component ;
++------------------------------------+-----------------------+---------------------------------------------------------------------+
+; Parameter Name                     ; Value                 ; Type                                                                ;
++------------------------------------+-----------------------+---------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                     ; Untyped                                                             ;
+; AUTO_CARRY_CHAINS                  ; ON                    ; AUTO_CARRY                                                          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                   ; IGNORE_CARRY                                                        ;
+; AUTO_CASCADE_CHAINS                ; ON                    ; AUTO_CASCADE                                                        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                   ; IGNORE_CASCADE                                                      ;
+; WIDTH_BYTEENA                      ; 1                     ; Untyped                                                             ;
+; OPERATION_MODE                     ; ROM                   ; Untyped                                                             ;
+; WIDTH_A                            ; 16                    ; Signed Integer                                                      ;
+; WIDTHAD_A                          ; 8                     ; Signed Integer                                                      ;
+; NUMWORDS_A                         ; 256                   ; Signed Integer                                                      ;
+; OUTDATA_REG_A                      ; UNREGISTERED          ; Untyped                                                             ;
+; ADDRESS_ACLR_A                     ; NONE                  ; Untyped                                                             ;
+; OUTDATA_ACLR_A                     ; NONE                  ; Untyped                                                             ;
+; WRCONTROL_ACLR_A                   ; NONE                  ; Untyped                                                             ;
+; INDATA_ACLR_A                      ; NONE                  ; Untyped                                                             ;
+; BYTEENA_ACLR_A                     ; NONE                  ; Untyped                                                             ;
+; WIDTH_B                            ; 1                     ; Untyped                                                             ;
+; WIDTHAD_B                          ; 1                     ; Untyped                                                             ;
+; NUMWORDS_B                         ; 1                     ; Untyped                                                             ;
+; INDATA_REG_B                       ; CLOCK1                ; Untyped                                                             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                ; Untyped                                                             ;
+; RDCONTROL_REG_B                    ; CLOCK1                ; Untyped                                                             ;
+; ADDRESS_REG_B                      ; CLOCK1                ; Untyped                                                             ;
+; OUTDATA_REG_B                      ; UNREGISTERED          ; Untyped                                                             ;
+; BYTEENA_REG_B                      ; CLOCK1                ; Untyped                                                             ;
+; INDATA_ACLR_B                      ; NONE                  ; Untyped                                                             ;
+; WRCONTROL_ACLR_B                   ; NONE                  ; Untyped                                                             ;
+; ADDRESS_ACLR_B                     ; NONE                  ; Untyped                                                             ;
+; OUTDATA_ACLR_B                     ; NONE                  ; Untyped                                                             ;
+; RDCONTROL_ACLR_B                   ; NONE                  ; Untyped                                                             ;
+; BYTEENA_ACLR_B                     ; NONE                  ; Untyped                                                             ;
+; WIDTH_BYTEENA_A                    ; 1                     ; Signed Integer                                                      ;
+; WIDTH_BYTEENA_B                    ; 1                     ; Untyped                                                             ;
+; RAM_BLOCK_TYPE                     ; AUTO                  ; Untyped                                                             ;
+; BYTE_SIZE                          ; 8                     ; Untyped                                                             ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE             ; Untyped                                                             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ  ; Untyped                                                             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ  ; Untyped                                                             ;
+; INIT_FILE                          ; memoriaDePrograma.mif ; Untyped                                                             ;
+; INIT_FILE_LAYOUT                   ; PORT_A                ; Untyped                                                             ;
+; MAXIMUM_DEPTH                      ; 0                     ; Untyped                                                             ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                ; Untyped                                                             ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                ; Untyped                                                             ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                ; Untyped                                                             ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                ; Untyped                                                             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN       ; Untyped                                                             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN       ; Untyped                                                             ;
+; ENABLE_ECC                         ; FALSE                 ; Untyped                                                             ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                 ; Untyped                                                             ;
+; WIDTH_ECCSTATUS                    ; 3                     ; Untyped                                                             ;
+; DEVICE_FAMILY                      ; Cyclone II            ; Untyped                                                             ;
+; CBXI_PARAMETER                     ; altsyncram_6091       ; Untyped                                                             ;
++------------------------------------+-----------------------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                               ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                                   ;
+; Entity Instance                           ; datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component       ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                                         ;
+;     -- WIDTH_A                            ; 16                                                                                  ;
+;     -- NUMWORDS_A                         ; 256                                                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                        ;
+;     -- WIDTH_B                            ; 1                                                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
+; Entity Instance                           ; datapath:pathdata|memoriaDePrograma:memoriaPrograma|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                                 ;
+;     -- WIDTH_A                            ; 16                                                                                  ;
+;     -- NUMWORDS_A                         ; 256                                                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                        ;
+;     -- WIDTH_B                            ; 1                                                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:pathdata|multi2:mux3"                                                              ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; out_rp[9..8] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; saida[9..8]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controlador:controler"                                                                     ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; selmux3     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ativardados ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; wren        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri May 07 00:05:09 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off microgeral -c microgeral
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file datapath/comparador/comparador.vhd
+    Info (12022): Found design unit 1: comparador-implementation
+    Info (12023): Found entity 1: comparador
+Info (12021): Found 2 design units, including 1 entities, in source file datapath/pilhareg/pilhareg.vhd
+    Info (12022): Found design unit 1: pilhareg-implementation
+    Info (12023): Found entity 1: pilhareg
+Info (12021): Found 2 design units, including 1 entities, in source file microgeral.vhd
+    Info (12022): Found design unit 1: microgeral-rtl_microgeral
+    Info (12023): Found entity 1: microgeral
+Info (12021): Found 2 design units, including 1 entities, in source file controlador/controlador.vhd
+    Info (12022): Found design unit 1: controlador-implementation
+    Info (12023): Found entity 1: controlador
+Info (12021): Found 2 design units, including 1 entities, in source file datapath/datapath.vhd
+    Info (12022): Found design unit 1: datapath-rtl_datapath
+    Info (12023): Found entity 1: datapath
+Info (12021): Found 2 design units, including 1 entities, in source file datapath/ula/ula.vhd
+    Info (12022): Found design unit 1: ULA-implementation
+    Info (12023): Found entity 1: ULA
+Info (12021): Found 2 design units, including 1 entities, in source file datapath/pc/pc.vhd
+    Info (12022): Found design unit 1: PC-arch_PC
+    Info (12023): Found entity 1: PC
+Info (12021): Found 2 design units, including 1 entities, in source file datapath/registrador16bits/registrador16bits.vhd
+    Info (12022): Found design unit 1: registrador16bits-implementation
+    Info (12023): Found entity 1: registrador16bits
+Info (12021): Found 2 design units, including 1 entities, in source file datapath/registradorde8bits/registradorde8bits.vhd
+    Info (12022): Found design unit 1: registradorde8bits-rtl_registradorde8bits
+    Info (12023): Found entity 1: registradorde8bits
+Info (12021): Found 2 design units, including 1 entities, in source file datapath/memoriadedados/memoriadedados.vhd
+    Info (12022): Found design unit 1: memoriadedados-SYN
+    Info (12023): Found entity 1: MemoriadeDados
+Info (12021): Found 2 design units, including 1 entities, in source file datapath/memoriadeprograma/memoriadeprograma.vhd
+    Info (12022): Found design unit 1: memoriadeprograma-SYN
+    Info (12023): Found entity 1: memoriaDePrograma
+Info (12021): Found 2 design units, including 1 entities, in source file datapath/multi5/multi5.vhd
+    Info (12022): Found design unit 1: multi5-implementation
+    Info (12023): Found entity 1: multi5
+Info (12021): Found 2 design units, including 1 entities, in source file datapath/multi2/multi2.vhd
+    Info (12022): Found design unit 1: multi2-implementation
+    Info (12023): Found entity 1: multi2
+Info (12021): Found 2 design units, including 1 entities, in source file datapath/multi7/multi7.vhd
+    Info (12022): Found design unit 1: multi7-implementation
+    Info (12023): Found entity 1: multi7
+Info (12127): Elaborating entity "microgeral" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at microgeral.vhd(18): object "SELETM3" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at microgeral.vhd(19): object "ACTIVE_DATA" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at microgeral.vhd(19): object "WRENN" assigned a value but never read
+Info (12128): Elaborating entity "controlador" for hierarchy "controlador:controler"
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(11): used implicit default value for signal "reset_RS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(11): used implicit default value for signal "reset_r0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(11): used implicit default value for signal "reset_r1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(11): used implicit default value for signal "reset_r2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(11): used implicit default value for signal "reset_r3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(11): used implicit default value for signal "reset_r4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(11): used implicit default value for signal "reset_r5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(11): used implicit default value for signal "reset_r6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(11): used implicit default value for signal "reset_RI" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(11): used implicit default value for signal "reset_RP" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(11): used implicit default value for signal "reset_RE" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(11): used implicit default value for signal "reset_PC" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at controlador.vhd(15): used implicit default value for signal "MD_addr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at controlador.vhd(28): object "v_RE" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at controlador.vhd(29): object "sel_DADOS" assigned a value but never read
+Warning (10492): VHDL Process Statement warning at controlador.vhd(190): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(191): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(193): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(194): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(195): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(196): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(197): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(198): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(199): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(200): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(205): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(206): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(207): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(208): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(209): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(210): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(211): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(212): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(221): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(222): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(229): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(230): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(231): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(232): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(233): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(234): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(235): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(236): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(245): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(246): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(264): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(265): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(266): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(267): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(268): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(269): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(270): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(271): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(280): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(281): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(287): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(288): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(289): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(290): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(291): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(292): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(293): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(294): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(303): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(304): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(318): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(319): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(320): signal "out_comparador" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(324): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(325): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(326): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(327): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(328): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(329): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(330): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(331): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(339): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(340): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(341): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(342): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(343): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(344): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(345): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(346): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(347): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(348): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(349): signal "out_comparador" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(353): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(354): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(355): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(356): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(357): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(358): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(359): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(360): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(365): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(366): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(367): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(368): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(369): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(370): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(371): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(372): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(378): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(379): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(411): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(412): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(413): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(414): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(415): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(416): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(417): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(418): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(422): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(431): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(436): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(437): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(438): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(439): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(440): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(441): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(442): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(443): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(449): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(454): signal "regInstrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(455): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(456): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(457): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(458): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(459): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(460): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controlador.vhd(461): signal "bau" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_R0", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_R1", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_R2", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_R3", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_R4", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_R5", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_R6", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_PC", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_RI", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_RE", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_RS", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_RP", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ld_MemDados", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "pc_increment", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "sel_mux5_1", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "sel_mux7_1", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "sel_mux7_2", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "sel_ULA", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "wren", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "bau", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "selmux3", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "ativarDados", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at controlador.vhd(122): inferring latch(es) for signal or variable "sel_mux2_1", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "sel_mux2_1" at controlador.vhd(122)
+Info (10041): Inferred latch for "ativarDados" at controlador.vhd(122)
+Info (10041): Inferred latch for "selmux3" at controlador.vhd(122)
+Info (10041): Inferred latch for "bau[0]" at controlador.vhd(122)
+Info (10041): Inferred latch for "bau[1]" at controlador.vhd(122)
+Info (10041): Inferred latch for "bau[2]" at controlador.vhd(122)
+Info (10041): Inferred latch for "bau[3]" at controlador.vhd(122)
+Info (10041): Inferred latch for "bau[4]" at controlador.vhd(122)
+Info (10041): Inferred latch for "bau[5]" at controlador.vhd(122)
+Info (10041): Inferred latch for "bau[6]" at controlador.vhd(122)
+Info (10041): Inferred latch for "wren" at controlador.vhd(122)
+Info (10041): Inferred latch for "sel_ULA[0]" at controlador.vhd(122)
+Info (10041): Inferred latch for "sel_ULA[1]" at controlador.vhd(122)
+Info (10041): Inferred latch for "sel_ULA[2]" at controlador.vhd(122)
+Info (10041): Inferred latch for "sel_mux7_2[0]" at controlador.vhd(122)
+Info (10041): Inferred latch for "sel_mux7_2[1]" at controlador.vhd(122)
+Info (10041): Inferred latch for "sel_mux7_2[2]" at controlador.vhd(122)
+Info (10041): Inferred latch for "sel_mux7_1[0]" at controlador.vhd(122)
+Info (10041): Inferred latch for "sel_mux7_1[1]" at controlador.vhd(122)
+Info (10041): Inferred latch for "sel_mux7_1[2]" at controlador.vhd(122)
+Info (10041): Inferred latch for "sel_mux5_1[0]" at controlador.vhd(122)
+Info (10041): Inferred latch for "sel_mux5_1[1]" at controlador.vhd(122)
+Info (10041): Inferred latch for "sel_mux5_1[2]" at controlador.vhd(122)
+Info (10041): Inferred latch for "pc_increment" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_MemDados" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_RP" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_RS" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_RE" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_RI" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_PC" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_R6" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_R5" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_R4" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_R3" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_R2" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_R1" at controlador.vhd(122)
+Info (10041): Inferred latch for "ld_R0" at controlador.vhd(122)
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:pathdata"
+Warning (10873): Using initial value X (don't care) for net "out_RP[9..8]" at datapath.vhd(25)
+Info (12128): Elaborating entity "MemoriadeDados" for hierarchy "datapath:pathdata|MemoriadeDados:memoriaDados"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone II"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "16"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_vsa1.tdf
+    Info (12023): Found entity 1: altsyncram_vsa1
+Info (12128): Elaborating entity "altsyncram_vsa1" for hierarchy "datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component|altsyncram_vsa1:auto_generated"
+Info (12128): Elaborating entity "memoriaDePrograma" for hierarchy "datapath:pathdata|memoriaDePrograma:memoriaPrograma"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "datapath:pathdata|memoriaDePrograma:memoriaPrograma|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "datapath:pathdata|memoriaDePrograma:memoriaPrograma|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "datapath:pathdata|memoriaDePrograma:memoriaPrograma|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "memoriaDePrograma.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone II"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "16"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_6091.tdf
+    Info (12023): Found entity 1: altsyncram_6091
+Info (12128): Elaborating entity "altsyncram_6091" for hierarchy "datapath:pathdata|memoriaDePrograma:memoriaPrograma|altsyncram:altsyncram_component|altsyncram_6091:auto_generated"
+Info (12128): Elaborating entity "registrador16bits" for hierarchy "datapath:pathdata|registrador16bits:inRegister"
+Warning (10492): VHDL Process Statement warning at registrador16bits.vhd(20): signal "clear" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "multi5" for hierarchy "datapath:pathdata|multi5:mux1"
+Info (12128): Elaborating entity "pilhareg" for hierarchy "datapath:pathdata|pilhareg:Rp"
+Warning (10492): VHDL Process Statement warning at pilhareg.vhd(20): signal "clear" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "multi7" for hierarchy "datapath:pathdata|multi7:mux7_registers1"
+Info (12128): Elaborating entity "comparador" for hierarchy "datapath:pathdata|comparador:compare"
+Info (12128): Elaborating entity "multi2" for hierarchy "datapath:pathdata|multi2:mux3"
+Info (12128): Elaborating entity "ULA" for hierarchy "datapath:pathdata|ULA:alu"
+Info (12128): Elaborating entity "PC" for hierarchy "datapath:pathdata|PC:contadordeprograma"
+Warning (10492): VHDL Process Statement warning at PC.vhd(22): signal "ld_PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at PC.vhd(22): signal "incrementar" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at PC.vhd(24): signal "ld_PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at PC.vhd(24): signal "incrementar" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[5]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[6]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[7]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[8]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[9]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[10]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[11]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[12]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[13]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[14]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "datapath:pathdata|ULA:alu|saida[15]" feeding internal logic into a wire
+Warning (13012): Latch controlador:controler|ld_RS has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.MOVS
+Warning (13012): Latch controlador:controler|sel_mux7_2[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|sel_mux7_2[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|sel_mux7_2[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|ld_RI has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.busca
+Warning (13012): Latch controlador:controler|bau[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|bau[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|bau[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|bau[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|bau[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|bau[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|bau[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|sel_mux7_1[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|sel_mux7_1[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|sel_mux7_1[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sltu
+Warning (13012): Latch controlador:controler|ld_MemDados has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.sw
+Warning (13012): Latch controlador:controler|sel_ULA[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.orr
+Warning (13012): Latch controlador:controler|sel_ULA[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.xorr
+Warning (13012): Latch controlador:controler|sel_ULA[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.andd
+Warning (13012): Latch controlador:controler|ld_PC has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.busca
+Warning (13012): Latch controlador:controler|pc_increment has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlador:controler|state.busca
+Info (17049): 24 registers lost all their fanouts during netlist optimizations.
+Info (17036): Removed 7 MSB VCC or GND address nodes from RAM block "datapath:pathdata|MemoriadeDados:memoriaDados|altsyncram:altsyncram_component|altsyncram_vsa1:auto_generated|ALTSYNCRAM"
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 707 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 18 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 641 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 225 warnings
+    Info: Peak virtual memory: 4646 megabytes
+    Info: Processing ended: Fri May 07 00:05:13 2021
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
+
+

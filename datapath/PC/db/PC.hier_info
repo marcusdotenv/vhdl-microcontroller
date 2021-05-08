@@ -1,0 +1,39 @@
+|PC
+PC_in[0] => PC_out[0]~8.DATAB
+PC_in[1] => PC_out[1]~9.DATAB
+PC_in[2] => PC_out[2]~10.DATAB
+PC_in[3] => PC_out[3]~11.DATAB
+PC_in[4] => PC_out[4]~12.DATAB
+PC_in[5] => PC_out[5]~13.DATAB
+PC_in[6] => PC_out[6]~14.DATAB
+PC_in[7] => PC_out[7]~15.DATAB
+PC_out[0] << PC_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_out[1] << PC_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_out[2] << PC_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_out[3] << PC_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_out[4] << PC_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_out[5] << PC_out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_out[6] << PC_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_out[7] << PC_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ld_PC => process_0~0.IN0
+ld_PC => process_0~1.IN0
+clk_PC => PC_out[0]~reg0.CLK
+clk_PC => PC_out[1]~reg0.CLK
+clk_PC => PC_out[2]~reg0.CLK
+clk_PC => PC_out[3]~reg0.CLK
+clk_PC => PC_out[4]~reg0.CLK
+clk_PC => PC_out[5]~reg0.CLK
+clk_PC => PC_out[6]~reg0.CLK
+clk_PC => PC_out[7]~reg0.CLK
+rst_PC => PC_out[0]~reg0.ACLR
+rst_PC => PC_out[1]~reg0.ACLR
+rst_PC => PC_out[2]~reg0.ACLR
+rst_PC => PC_out[3]~reg0.ACLR
+rst_PC => PC_out[4]~reg0.ACLR
+rst_PC => PC_out[5]~reg0.ACLR
+rst_PC => PC_out[6]~reg0.ACLR
+rst_PC => PC_out[7]~reg0.ACLR
+incrementar => process_0~1.IN1
+incrementar => process_0~0.IN1
+
+

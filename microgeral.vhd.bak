@@ -1,0 +1,62 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity microgeral is
+	port(
+		clock, reset : in std_logic;
+		entrada : in std_logic_vector(7 downto 0);
+		saidaGeral : out std_logic_vector(7 downto 0);
+		
+		testeSinais : out std_LOGIC_VECTOR(2 downto 0);
+		teste8bits : out std_LOGIC_VECTOR(7 downto 0);
+		teste : out std_LOGIC_VECTOR (11 downto 0)
+	);
+	
+end microgeral;
+
+
+--architecture rtl_microgeral of microgeral is
+--	signal ssaidaRI : std_logic_vector(15 downto 0);
+--	signal sflag, sldr0, sldr1, sldr2, sldr3, sldpc, sldir, sldFlag, sldRin, sldRout, sselmux3, sincrementarPC, sativarDados, swren : std_logic;
+--	signal sselULA, sselmux0 : std_logic_vector (2 downto 0);
+--	signal sselmux1, sselmux2 : std_logic_vector(1 downto 0);
+--	
+--	component unidadeControle
+--		port(
+--			clk	 : in	std_logic;
+--			regInstrucao	 : in	std_logic_vector (11 downto 0);
+--			reset	 : in	std_logic;
+--			ldR0, ldR1, ldR2, ldR3, ldPC, ldIR, ldFlag, ldRin, ldRout, selmux3, incrementarPC, ativarDados, wren : out std_logic;
+--			selULA : out std_logic_vector (2 downto 0);
+--			selmux0 : out std_logic_vector(2 downto 0);
+--			selmux1, selmux2 : out std_logic_vector(1 downto 0)
+--		);
+--	end component unidadeControle;
+	
+	component datapath
+		port(
+		MD_addr	:	in std_logic_vector(7 downto 0); -- lembrar de colocar saida do controlador MD_addr	:	out std_logic_vector(7 downto 0);
+		RIout : out std_LOGIC_VECTOR(15 downto 0);
+		in_RE, in_DADOS : in std_logic_vector(15 downto 0);
+		saida : out std_logic_vector(15 downto 0);
+		ld_r0, ld_r1, ld_r2, ld_r3, ld_r4, ld_r5, ld_r6, ld_RP, ld_RS, ld_PC, ld_RI, ldFlag,
+		ld_RE, ldRout, selmux3, incrementar_PC, ativarDados, wren, sel_mux2_1, ld_MEM : in std_logic;
+		sel_ULA : in std_logic_vector (2 downto 0);
+		sel_mux5_1, sel_mux7_1, sel_mux7_2 : in std_logic_vector(2 downto 0);
+	   -- : in std_logic_vector(1 downto 0);
+		clock, reset_RS, reset_r0, reset_r1, reset_r2, reset_r3, reset_r4, reset_r5, reset_r6, reset_RI, reset_RP, reset_RE, reset_PC : in std_logic;
+		saida8bits : out std_LOGIC_VECTOR(7 downto 0);
+		flag : out std_LOGIC
+	);
+	end component datapath; 
+	
+	
+	begin
+		
+	--	controle : unidadeControle port map (clock, ssaidaRI(15 downto 4), reset, sldr0, sldr1, sldr2, sldr3, sldpc, sldir, sldFlag, sldRin, sldRout, sselmux3, sincrementarPC, sativarDados, swren, sselULA, sselmux0, sselmux1, sselmux2); 
+		dp : datapath port map(ssaidaRI, entrada, saidaGeral, sldr0, sldr1, sldr2, sldr3, sldpc, sldir, sldFlag, sldRin, sldRout, sselmux3, sincrementarPC, sativarDados, swren, sselULA, sselmux0, sselmux1, sselmux2, reset, clock, teste8bits, sflag);
+		
+--		testeSinais <= sselmux0;
+--		teste <= ssaidaRI(15 downto 4);
+end rtl_microgeral;

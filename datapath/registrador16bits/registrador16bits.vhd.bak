@@ -1,0 +1,23 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity registrador16bits is
+	port(
+		data_in : in std_logic_vector(15 downto 0);
+		data_out : out std_logic_vector(15 downto 0);
+		ld_registrador : in std_logic;
+		clk_registrador : in std_logic
+		);
+ end registrador16bits;
+ 
+ architecture hardware of registrador16bits is
+	begin 
+ process(clk_registrador, ld_registrador)
+	begin
+		if (ld_registrador = '1' and rising_edge(clk_registrador)) then
+			data_out <= data_in;
+		end if;
+		
+end process;
+
+end hardware;

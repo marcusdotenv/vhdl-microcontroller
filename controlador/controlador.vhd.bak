@@ -1,0 +1,462 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity controlador is
+
+	port(
+		clk	 : in	std_logic;
+		regInstrucao	 : in	std_logic_vector (15 downto 0);
+		reset	 : in	std_logic;
+		ld_R0, ld_R1, ld_R2, ld_R3, ld_R4, ld_R5, ld_R6, ld_R7, ld_PC,
+		ld_RI, ld_RE,ld_RP, ld_RS, selmux3,  pc_increment, 
+		ativarDados, wren, sel_mux2_1, ld_MemDados : out std_logic;
+		sel_ULA : out std_logic_vector (2 downto 0);
+		MD_addr : out std_logic_vector (7 downto 0);
+		out_comparador : in std_logic_vector (1 downto 0);
+		sel_mux5_1, sel_mux7_1, sel_mux7_2  : out std_logic_vector(2 downto 0)
+		
+	);
+
+end controlador;
+
+architecture implementation of controlador is
+
+	-- Build an enumerated type for the state machine
+	type estado is (initial, busca, decodificar, nop, andd, orr, xorr, slli, srli, srai, add, sub, jma, slt, sltu, lw, sw, jme, jmp, ret, jz, mbh, mbl);
+
+	-- Register to hold the current state
+	signal state   : estado;
+	signal bau : std_logic_vector (6 downto 0);
+	signal v_RE : std_logic_vector (15 downto 0);
+	signal sel_DADOS : std_logic_vector (7 downto 0);
+
+	function  get_register(
+		in_register: std_logic_vector(2 downto 0)
+		) 
+		return std_logic_vector is variable return_register: std_logic_vector (6 downto 0);
+	
+	begin
+		case in_register is 
+			when "000" => return_register :="0000001";
+			when "001" => return_register :="0000010";
+			when "010" => return_register :="0000100";
+			when "011" => return_register :="0001000";
+			when "100" => return_register :="0010000";
+			when "101" => return_register :="0100000";
+			when "110" => return_register :="1000000";
+			when others => return_register := "0000000";
+	end case;
+	
+		return std_logic_vector(return_register);
+		
+	end get_register;
+
+begin
+	process (clk, reset)
+	begin
+		if reset = '1' then
+			state <= initial;
+		elsif (rising_edge(clk)) then
+			case state is
+				when initial=>
+					state <= busca;
+				when busca=>
+					state <= decodificar;
+				when decodificar=>
+					   if (regInstrucao (15 downto 10) = "00000") then --FEITO
+						state <= nop;
+					elsif (regInstrucao (15 downto 10) = "00001") then -- PRÉ FEITO
+						state <= andd;
+					elsif (regInstrucao (15 downto 10) = "00010") then -- PRÉ FEITO
+						state <= orr;
+					elsif (regInstrucao (15 downto 10) = "00011") then -- PRÉ FEITO
+						state <= xorr;
+					elsif (regInstrucao (15 downto 10) = "00100") then -- FALTA FAZER
+						state <= slli;
+					elsif (regInstrucao (15 downto 10) = "00101") then -- FALTA FAZER
+						state <= srli;
+					elsif (regInstrucao (15 downto 10) = "00110") then -- FALTA FAZER
+						state <= srai;
+					elsif (regInstrucao (15 downto 10) = "00111") then -- PRÉ FEITO
+						state <= add;
+					elsif (regInstrucao (15 downto 10) = "01000") then -- PRÉ FEITO
+						state <= sub;
+					elsif (regInstrucao (15 downto 10) = "01001") then -- FALTA FAZER
+						state <= jma;
+					elsif (regInstrucao (15 downto 10) = "01010") then -- FALTA FAZER
+						state <= slt;
+					elsif (regInstrucao (15 downto 10) = "01011") then -- FALTA FAZER
+						state <= sltu;
+					elsif (regInstrucao (15 downto 10) = "01100") then -- tem mais ou menos
+						state <= lw;
+					elsif (regInstrucao (15 downto 10) = "01101") then -- tem mais ou menos
+						state <= sw;
+					elsif (regInstrucao (15 downto 10) = "01110") then -- FALTA FAZER
+						state <= jme;
+					elsif (regInstrucao (15 downto 10) = "01111") then -- PRÉ FEITO
+						state <= jmp;
+					elsif (regInstrucao (15 downto 10) = "10000") then -- FALTA FAZER
+						state <= ret;
+					elsif (regInstrucao (15 downto 10) = "10001") then -- FALTA FAZER
+						state <= jz;
+					elsif (regInstrucao (15 downto 10) = "10010") then -- FALTA FAZER
+						state <= mbh;
+					elsif (regInstrucao (15 downto 10) = "10011") then -- FALTA FAZER
+						state <= mbl;	
+						
+						
+		end if;
+					when others => 
+					state <= initial;
+		end case;
+		end if;				
+		end process;
+		
+		process (state)
+	begin
+		case state is
+			when initial=>
+				ld_R0 <= '0';
+				ld_R1 <= '0';
+				ld_R2 <= '0';
+				ld_R3 <= '0';
+				ld_R4 <= '0';
+				ld_R5 <= '0';
+				ld_R6 <= '0';
+				ld_R7 <= '0';
+				ld_PC <= '0';
+				ld_RI <= '0';
+				ld_RE <= '0'; 
+				ld_RS <= '0';
+				
+				pc_increment <= '0'; 
+				
+				sel_mux5_1 <= "000";
+				sel_mux7_1 <= "000";
+				sel_mux7_2 <= "000";
+				sel_ULA <= "000";
+				wren <= '0';
+
+			when busca=>
+				ld_R0 <= '0';
+				ld_R1 <= '0';
+				ld_R2 <= '0';
+				ld_R3 <= '0';
+				ld_R4 <= '0';
+				ld_R5 <= '0';
+				ld_R6 <= '0';
+				ld_R7 <= '0';
+				ld_PC <= '0';
+				ld_RI <= '1';
+				
+				ld_RE <= '0'; 
+				ld_RS <= '0';
+				
+				pc_increment <= '1'; 
+				
+				sel_mux5_1 <= "000";
+				sel_mux7_1 <= "000";
+				sel_mux7_2 <= "000";
+				sel_ULA <= "000";
+				wren <= '0';
+
+			when decodificar=>
+				ld_R0 <= '0';
+				ld_R1 <= '0';
+				ld_R2 <= '0';
+				ld_R3 <= '0';
+				ld_R4 <= '0';
+				ld_R5 <= '0';
+				ld_R6 <= '0';
+				ld_R7 <= '0';
+				ld_PC <= '0';
+				ld_RI <= '0';
+				
+				ld_RE <= '0'; 
+				ld_RS <= '0';
+				
+				pc_increment <= '0'; 
+				
+				sel_mux5_1 <= "000";
+				sel_mux7_1 <= "000";
+				sel_mux7_2 <= "000";
+				sel_ULA <= "000";
+				wren <= '0';	
+					
+			when nop=>
+            -- nop
+			
+			when andd=>
+            -- 00000 OP 000 RS1 000 RS2 000 RD  XX
+			    bau<=get_register(regInstrucao(4 downto 2));
+			    ld_R0<=bau(0);
+			    ld_R1<=bau(1);
+			    ld_R2<=bau(2);
+			    ld_R3<=bau(3);
+			    ld_R4<=bau(4);
+			    ld_R5<=bau(5);
+			    ld_R6<=bau(6);
+             sel_mux5_1 <= "100";
+			    ld_PC <= '0';
+			    ld_RI <= '0';
+			    
+			    ld_RE <= '0'; 
+			    ld_RS <= '0';
+			    selmux3 <= '1';
+			    pc_increment <= '0'; 
+			    ativarDados <= '0';
+                sel_mux7_1 <= regInstrucao(10 downto 8);
+				sel_mux7_2 <= regInstrucao(7 downto 5);
+			    sel_ULA <= "010";
+			    wren <= '0';
+            
+            when orr =>
+            -- 00000 OP 000 RS1 000 RS2 000 RD  XX
+                bau<=get_register(regInstrucao(4 downto 2));
+                ld_R0<=bau(0);
+                ld_R1<=bau(1);
+                ld_R2<=bau(2);
+                ld_R3<=bau(3);
+                ld_R4<=bau(4);
+                ld_R5<=bau(5);
+                ld_R6<=bau(6);
+                sel_mux5_1 <= "100";
+                ld_PC <= '0';
+                ld_RI <= '0';
+                
+                ld_RE <= '0'; 
+                ld_RS <= '0';
+                selmux3 <= '1';
+                pc_increment <= '0'; 
+                ativarDados <= '0';
+                sel_mux7_1 <= regInstrucao(10 downto 8);
+                sel_mux7_2 <= regInstrucao(7 downto 5);
+                sel_ULA <= "011";
+                wren <= '0';
+			
+
+            when xorr =>
+                -- 00000 OP 000 RS1 000 RS2 000 RD  XX
+                bau<=get_register(regInstrucao(4 downto 2));
+                ld_R0<=bau(0);
+                ld_R1<=bau(1);
+                ld_R2<=bau(2);
+                ld_R3<=bau(3);
+                ld_R4<=bau(4);
+                ld_R5<=bau(5);
+                ld_R6<=bau(6);
+                sel_mux5_1 <= "100";
+                ld_PC <= '0';
+                ld_RI <= '0';
+                
+                ld_RE <= '0'; 
+                ld_RS <= '0';
+                selmux3 <= '1';
+                pc_increment <= '0'; 
+                ativarDados <= '0';
+                sel_mux7_1 <= regInstrucao(10 downto 8);
+                sel_mux7_2 <= regInstrucao(7 downto 5);
+                sel_ULA <= "100";
+                wren <= '0';
+            	
+            when slli =>
+
+             -- Necessário fazer deslocamento
+
+            when srli =>
+            
+            -- Necessário fazer deslocamento
+
+            when srai =>
+
+             -- Necessário fazer deslocamento 
+
+            when add =>
+            -- 00000 OP 000 RS1 000 RS2 000 RD  XX
+                bau<=get_register(regInstrucao(4 downto 2));
+                ld_R0<=bau(0);
+                ld_R1<=bau(1);
+                ld_R2<=bau(2);
+                ld_R3<=bau(3);
+                ld_R4<=bau(4);
+                ld_R5<=bau(5);
+                ld_R6<=bau(6);
+                ld_PC <= '0';
+                ld_RI <= '0';
+                
+                ld_RE <= '0'; 
+                ld_RS <= '0';
+                selmux3 <= '0';
+                pc_increment <= '0'; 
+                ativarDados <= '0';
+                sel_mux5_1 <= "101";
+                sel_mux7_1 <= regInstrucao(10 downto 8);
+                sel_mux7_2 <= regInstrucao(7 downto 5);
+                sel_ULA <= "000";
+                wren <= '0';
+            
+            when sub =>
+            -- 00000 OP 000 RS1 000 RS2 000 RD  XX
+                bau<=get_register(regInstrucao(4 downto 2));
+                ld_R0<=bau(0);
+                ld_R1<=bau(1);
+                ld_R2<=bau(2);
+                ld_R3<=bau(3);
+                ld_R4<=bau(4);
+                ld_R5<=bau(5);
+                ld_R6<=bau(6);
+                ld_PC <= '0';
+                ld_RI <= '0';
+                
+                ld_RE <= '0'; 
+                ld_RS <= '0';
+                selmux3 <= '0';
+                pc_increment <= '0'; 
+                ativarDados <= '0';
+                sel_mux5_1 <= "101";
+                sel_mux7_1 <= regInstrucao(10 downto 8);
+                sel_mux7_2 <= regInstrucao(7 downto 5);
+                sel_ULA <= "001";
+                wren <= '0';
+
+            when jma =>
+                -- Acrescentar ligação do Mux com o registrador de pilha
+					 -- Acrescentar ligação do MUX3 Para o registrador de pilha
+					 -- sel_mux2_1 <= regInstrucao(10 downto 8);
+				-- bau<=get_register(regInstrucao(7 downto 5));
+                   ld_RI <= '1';
+						 ld_RE <= '0';
+						 ld_RP <= '1';
+                   sel_mux2_1 <= '1';
+			--			 in_RP <= out_PC (7 downto 4);
+					    ld_PC <= '1';
+                
+
+            when slt =>
+                -- 00000 OP 000 RS1 000 RS2 000 RD XX
+                sel_mux7_1 <= regInstrucao(10 downto 8);
+                sel_mux7_2 <= regInstrucao(7 downto 5);
+                if out_comparador = "11" then 
+                    ld_RE <= '1';
+                    v_RE <= "0000000000000001";
+                    sel_mux5_1 <= "000";
+                    bau<=get_register(regInstrucao(4 downto 2));
+                    ld_R0<=bau(0);
+                    ld_R1<=bau(1);
+                    ld_R2<=bau(2);
+                    ld_R3<=bau(3);
+                    ld_R4<=bau(4);
+                    ld_R5<=bau(5);
+                    ld_R6<=bau(6);
+					end if;
+					
+            when sltu =>
+                -- 00000 OP 000 RS1 000 RS2 000 RD XX
+                ld_RE <= '1';
+                v_RE <= "0000000000000000";
+                sel_mux5_1 <= "000";
+                bau<=get_register(regInstrucao(7 downto 5));
+                ld_R0<=bau(0);
+                ld_R1<=bau(1);
+                ld_R2<=bau(2);
+                ld_R3<=bau(3);
+                ld_R4<=bau(4);
+                ld_R5<=bau(5);
+                ld_R6<=bau(6);
+                sel_mux7_1 <= regInstrucao(7 downto 5);
+                sel_mux7_2 <= regInstrucao(10 downto 8);
+                if out_comparador = "11" then 
+                    ld_RE <= '1';
+                    v_RE <= "0000000000000001";
+                    sel_mux5_1 <= "000";
+                    bau<=get_register(regInstrucao(4 downto 2));
+                    ld_R0<=bau(0);
+                    ld_R1<=bau(1);
+                    ld_R2<=bau(2);
+                    ld_R3<=bau(3);
+                    ld_R4<=bau(4);
+                    ld_R5<=bau(5);
+                    ld_R6<=bau(6);
+					end if;
+
+            when lw => -- Completar implementação
+            -- 00000 OP 000 RD 00000000  MEM
+                bau<=get_register(regInstrucao(10 downto 8));
+                ld_R0<=bau(0);
+                ld_R1<=bau(1);
+                ld_R2<=bau(2);
+                ld_R3<=bau(3);
+                ld_R4<=bau(4);
+                ld_R5<=bau(5);
+                ld_R6<=bau(6); 
+                sel_mux5_1 <= "011";
+            
+            when sw => -- Completar implementação
+            -- 00000 OP 000 RS 00000000  MEM 
+                sel_mux5_1 <= regInstrucao(10 downto 8);
+                sel_DADOS <= regInstrucao(7 downto 0);
+                ld_MemDados <= '1';
+            
+            when jme =>
+                -- FAZER
+            
+            when jmp =>
+            -- 00000 OP 0000 INST XXXXXXXX 
+                sel_mux5_1 <= "000";
+                -- Acrescentar ligação do Mux com o registrador de pilha
+            
+            when ret =>
+                -- Acrescentar ligação do MUX3 Para o registrador de pilha
+					 -- sel_mux2_1 <= regInstrucao(10 downto 8);
+                    ld_RI <= '1';
+						  ld_RE <= '0';
+						  ld_RP <= '1';
+                    sel_mux2_1 <= '1';
+						--  in_RP <= sel_PC (7 downto 0);
+                  --  bau<=get_register(regInstrucao(7 downto 0));
+						  ld_PC <= '1';
+                
+            when jz =>
+                -- FAZER
+
+            when mbh =>
+					 -- falta concatenar	
+                -- 00000 OP 000 RD 00000000 MEM
+                sel_mux7_1 <= regInstrucao(10 downto 8);
+                    ld_RI <= '1';
+						  ld_RE <= '1';
+                  --  v_RE = "0000000000000001";
+                    sel_mux5_1 <= "000";
+                    bau<=get_register(regInstrucao(10 downto 8));
+                    ld_R0<=bau(0);
+                    ld_R1<=bau(1);
+                    ld_R2<=bau(2);
+                    ld_R3<=bau(3);
+                    ld_R4<=bau(4);
+                    ld_R5<=bau(5);
+                    ld_R6<=bau(6);
+
+            
+            when mbl =>
+					 -- falta concatenar 
+                -- 00000 OP 000 RD 00000000 MEM
+                sel_mux7_1 <= regInstrucao(10 downto 8);
+                    ld_RI <= '1';
+						  ld_RE <= '1';
+                    v_RE <= "0000000000000001";
+                    sel_mux5_1 <= "000";
+                    bau<=get_register(regInstrucao(10 downto 8));
+                    ld_R0<=bau(0);
+                    ld_R1<=bau(1);
+                    ld_R2<=bau(2);
+                    ld_R3<=bau(3);
+                    ld_R4<=bau(4);
+                    ld_R5<=bau(5);
+                    ld_R6<=bau(6);
+			when others =>
+				state <= busca;
+			end case;
+	end process;
+
+end implementation;

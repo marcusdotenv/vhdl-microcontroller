@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'clock'
+Slack : -9.224
+TNS   : -1232.387
+
+Type  : Slow Model Setup 'controlador:controler|state.MOVS'
+Slack : -3.673
+TNS   : -29.581
+
+Type  : Slow Model Setup 'controlador:controler|state.add'
+Slack : -3.090
+TNS   : -22.418
+
+Type  : Slow Model Setup 'controlador:controler|state.initial'
+Slack : -1.447
+TNS   : -5.588
+
+Type  : Slow Model Hold 'controlador:controler|state.add'
+Slack : -6.166
+TNS   : -52.743
+
+Type  : Slow Model Hold 'controlador:controler|state.initial'
+Slack : -5.231
+TNS   : -30.279
+
+Type  : Slow Model Hold 'controlador:controler|state.MOVS'
+Slack : -4.508
+TNS   : -44.737
+
+Type  : Slow Model Hold 'clock'
+Slack : -2.161
+TNS   : -2.161
+
+Type  : Slow Model Minimum Pulse Width 'clock'
+Slack : -2.064
+TNS   : -497.281
+
+Type  : Slow Model Minimum Pulse Width 'controlador:controler|state.MOVS'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'controlador:controler|state.add'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'controlador:controler|state.initial'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'clock'
+Slack : -2.687
+TNS   : -259.860
+
+Type  : Fast Model Setup 'controlador:controler|state.MOVS'
+Slack : -0.985
+TNS   : -4.798
+
+Type  : Fast Model Setup 'controlador:controler|state.add'
+Slack : -0.888
+TNS   : -5.205
+
+Type  : Fast Model Setup 'controlador:controler|state.initial'
+Slack : 0.072
+TNS   : 0.000
+
+Type  : Fast Model Hold 'controlador:controler|state.add'
+Slack : -2.399
+TNS   : -20.401
+
+Type  : Fast Model Hold 'controlador:controler|state.initial'
+Slack : -2.084
+TNS   : -11.318
+
+Type  : Fast Model Hold 'controlador:controler|state.MOVS'
+Slack : -1.924
+TNS   : -19.791
+
+Type  : Fast Model Hold 'clock'
+Slack : -1.096
+TNS   : -1.096
+
+Type  : Fast Model Minimum Pulse Width 'clock'
+Slack : -2.000
+TNS   : -427.148
+
+Type  : Fast Model Minimum Pulse Width 'controlador:controler|state.MOVS'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'controlador:controler|state.add'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'controlador:controler|state.initial'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

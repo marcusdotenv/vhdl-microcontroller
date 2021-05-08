@@ -1,0 +1,11 @@
+library ieee;
+use IEEE.std_logic_1164.all;
+use ieee.numeric_std;
+
+
+process (<clock_signal>)
+begin
+	if (rising_edge(<clock_signal>)) then
+		<register_variable> <= <data>;
+	end if;
+end process;

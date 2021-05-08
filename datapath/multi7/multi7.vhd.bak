@@ -1,0 +1,37 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity multi7 is
+	port (
+		clk : in std_logic;
+		sel : in std_logic_vector(2 downto 0);
+		A 	 : in std_logic_vector(7 downto 0);
+		B 	 : in std_logic_vector(7 downto 0);
+		C 	 : in std_logic_vector(7 downto 0);
+		D 	 : in std_logic_vector(7 downto 0);
+		E	 : in std_logic_vector(7 downto 0);
+		F	 : in std_logic_vector(7 downto 0);
+		G	 : in std_logic_vector(7 downto 0);
+		X	 : out std_logic_vector(7 downto 0)
+	);
+end multi7;
+
+architecture hardware of multi7 is
+begin
+	process(clk)
+		begin 
+			IF (clk'event AND clk = '1') THEN
+				case sel is
+					when "000" => X <= A;
+					when "001" => X <= B;
+					when "010" => X <= C;
+					when "011" => X <= D;
+					when "100" => X <= E;
+					when "101" => X <= F;
+					when "110" => X <= G;
+	
+					when others => X <= G;
+				end case;	
+			end if;
+	end process;
+end hardware;

@@ -1,0 +1,513 @@
+Simulator report for comparador
+Mon May 03 09:54:51 2021
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 1.0 us       ;
+; Simulation Netlist Size     ; 176 nodes    ;
+; Simulation Coverage         ;       0.00 % ;
+; Total Number of Transitions ; 0            ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
++-----------------------------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                                                                                               ;
++--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+---------------+
+; Option                                                                                     ; Setting                                                                             ; Default Value ;
++--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+---------------+
+; Simulation mode                                                                            ; Functional                                                                          ; Timing        ;
+; Start time                                                                                 ; 0 ns                                                                                ; 0 ns          ;
+; Simulation results format                                                                  ; VWF                                                                                 ;               ;
+; Vector input source                                                                        ; C:/Users/Matheus Victor/Desktop/projeto/microgeral/datapath/comparador/Waveform.vwf ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On                                                                                  ; On            ;
+; Check outputs                                                                              ; Off                                                                                 ; Off           ;
+; Report simulation coverage                                                                 ; On                                                                                  ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On                                                                                  ; On            ;
+; Display missing 1-value coverage report                                                    ; On                                                                                  ; On            ;
+; Display missing 0-value coverage report                                                    ; On                                                                                  ; On            ;
+; Detect setup and hold time violations                                                      ; Off                                                                                 ; Off           ;
+; Detect glitches                                                                            ; Off                                                                                 ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off                                                                                 ; Off           ;
+; Generate Signal Activity File                                                              ; Off                                                                                 ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off                                                                                 ; Off           ;
+; Group bus channels in simulation results                                                   ; Off                                                                                 ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On                                                                                  ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE                                                                          ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off                                                                                 ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off                                                                                 ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto                                                                                ; Auto          ;
++--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II 64-Bit to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;       0.00 % ;
+; Total nodes checked                                 ; 176          ;
+; Total output ports checked                          ; 176          ;
+; Total output ports with complete 1/0-value coverage ; 0            ;
+; Total output ports with no 1/0-value coverage       ; 176          ;
+; Total output ports with no 1-value coverage         ; 176          ;
+; Total output ports with no 0-value coverage         ; 176          ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++-------------------------------------------------+
+; Complete 1/0-Value Coverage                     ;
++-----------+------------------+------------------+
+; Node Name ; Output Port Name ; Output Port Type ;
++-----------+------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                               ;
++--------------------------+--------------------------+------------------+
+; Node Name                ; Output Port Name         ; Output Port Type ;
++--------------------------+--------------------------+------------------+
+; |comparador|saida~0      ; |comparador|saida~0      ; out              ;
+; |comparador|saida~1      ; |comparador|saida~1      ; out              ;
+; |comparador|saida~2      ; |comparador|saida~2      ; out              ;
+; |comparador|A[0]         ; |comparador|A[0]         ; out              ;
+; |comparador|A[1]         ; |comparador|A[1]         ; out              ;
+; |comparador|A[2]         ; |comparador|A[2]         ; out              ;
+; |comparador|A[3]         ; |comparador|A[3]         ; out              ;
+; |comparador|A[4]         ; |comparador|A[4]         ; out              ;
+; |comparador|A[5]         ; |comparador|A[5]         ; out              ;
+; |comparador|A[6]         ; |comparador|A[6]         ; out              ;
+; |comparador|A[7]         ; |comparador|A[7]         ; out              ;
+; |comparador|A[8]         ; |comparador|A[8]         ; out              ;
+; |comparador|A[9]         ; |comparador|A[9]         ; out              ;
+; |comparador|A[10]        ; |comparador|A[10]        ; out              ;
+; |comparador|A[11]        ; |comparador|A[11]        ; out              ;
+; |comparador|A[12]        ; |comparador|A[12]        ; out              ;
+; |comparador|A[13]        ; |comparador|A[13]        ; out              ;
+; |comparador|A[14]        ; |comparador|A[14]        ; out              ;
+; |comparador|A[15]        ; |comparador|A[15]        ; out              ;
+; |comparador|B[0]         ; |comparador|B[0]         ; out              ;
+; |comparador|B[1]         ; |comparador|B[1]         ; out              ;
+; |comparador|B[2]         ; |comparador|B[2]         ; out              ;
+; |comparador|B[3]         ; |comparador|B[3]         ; out              ;
+; |comparador|B[4]         ; |comparador|B[4]         ; out              ;
+; |comparador|B[5]         ; |comparador|B[5]         ; out              ;
+; |comparador|B[6]         ; |comparador|B[6]         ; out              ;
+; |comparador|B[7]         ; |comparador|B[7]         ; out              ;
+; |comparador|B[8]         ; |comparador|B[8]         ; out              ;
+; |comparador|B[9]         ; |comparador|B[9]         ; out              ;
+; |comparador|B[10]        ; |comparador|B[10]        ; out              ;
+; |comparador|B[11]        ; |comparador|B[11]        ; out              ;
+; |comparador|B[12]        ; |comparador|B[12]        ; out              ;
+; |comparador|B[13]        ; |comparador|B[13]        ; out              ;
+; |comparador|B[14]        ; |comparador|B[14]        ; out              ;
+; |comparador|B[15]        ; |comparador|B[15]        ; out              ;
+; |comparador|saida[0]     ; |comparador|saida[0]     ; pin_out          ;
+; |comparador|saida[1]     ; |comparador|saida[1]     ; pin_out          ;
+; |comparador|LessThan0~0  ; |comparador|LessThan0~0  ; out0             ;
+; |comparador|LessThan0~1  ; |comparador|LessThan0~1  ; out0             ;
+; |comparador|LessThan0~2  ; |comparador|LessThan0~2  ; out0             ;
+; |comparador|LessThan0~3  ; |comparador|LessThan0~3  ; out0             ;
+; |comparador|LessThan0~4  ; |comparador|LessThan0~4  ; out0             ;
+; |comparador|LessThan0~5  ; |comparador|LessThan0~5  ; out0             ;
+; |comparador|LessThan0~6  ; |comparador|LessThan0~6  ; out0             ;
+; |comparador|LessThan0~7  ; |comparador|LessThan0~7  ; out0             ;
+; |comparador|LessThan0~8  ; |comparador|LessThan0~8  ; out0             ;
+; |comparador|LessThan0~9  ; |comparador|LessThan0~9  ; out0             ;
+; |comparador|LessThan0~10 ; |comparador|LessThan0~10 ; out0             ;
+; |comparador|LessThan0~11 ; |comparador|LessThan0~11 ; out0             ;
+; |comparador|LessThan0~12 ; |comparador|LessThan0~12 ; out0             ;
+; |comparador|LessThan0~13 ; |comparador|LessThan0~13 ; out0             ;
+; |comparador|LessThan0~14 ; |comparador|LessThan0~14 ; out0             ;
+; |comparador|LessThan0~15 ; |comparador|LessThan0~15 ; out0             ;
+; |comparador|LessThan0~16 ; |comparador|LessThan0~16 ; out0             ;
+; |comparador|LessThan0~17 ; |comparador|LessThan0~17 ; out0             ;
+; |comparador|LessThan0~18 ; |comparador|LessThan0~18 ; out0             ;
+; |comparador|LessThan0~19 ; |comparador|LessThan0~19 ; out0             ;
+; |comparador|LessThan0~20 ; |comparador|LessThan0~20 ; out0             ;
+; |comparador|LessThan0~21 ; |comparador|LessThan0~21 ; out0             ;
+; |comparador|LessThan0~22 ; |comparador|LessThan0~22 ; out0             ;
+; |comparador|LessThan0~23 ; |comparador|LessThan0~23 ; out0             ;
+; |comparador|LessThan0~24 ; |comparador|LessThan0~24 ; out0             ;
+; |comparador|LessThan0~25 ; |comparador|LessThan0~25 ; out0             ;
+; |comparador|LessThan0~26 ; |comparador|LessThan0~26 ; out0             ;
+; |comparador|LessThan0~27 ; |comparador|LessThan0~27 ; out0             ;
+; |comparador|LessThan0~28 ; |comparador|LessThan0~28 ; out0             ;
+; |comparador|LessThan0~29 ; |comparador|LessThan0~29 ; out0             ;
+; |comparador|LessThan0~30 ; |comparador|LessThan0~30 ; out0             ;
+; |comparador|LessThan0~31 ; |comparador|LessThan0~31 ; out0             ;
+; |comparador|LessThan0~32 ; |comparador|LessThan0~32 ; out0             ;
+; |comparador|LessThan0~33 ; |comparador|LessThan0~33 ; out0             ;
+; |comparador|LessThan0~34 ; |comparador|LessThan0~34 ; out0             ;
+; |comparador|LessThan0~35 ; |comparador|LessThan0~35 ; out0             ;
+; |comparador|LessThan0~36 ; |comparador|LessThan0~36 ; out0             ;
+; |comparador|LessThan0~37 ; |comparador|LessThan0~37 ; out0             ;
+; |comparador|LessThan0~38 ; |comparador|LessThan0~38 ; out0             ;
+; |comparador|LessThan0~39 ; |comparador|LessThan0~39 ; out0             ;
+; |comparador|LessThan0~40 ; |comparador|LessThan0~40 ; out0             ;
+; |comparador|LessThan0~41 ; |comparador|LessThan0~41 ; out0             ;
+; |comparador|LessThan0~42 ; |comparador|LessThan0~42 ; out0             ;
+; |comparador|LessThan0~43 ; |comparador|LessThan0~43 ; out0             ;
+; |comparador|LessThan0~44 ; |comparador|LessThan0~44 ; out0             ;
+; |comparador|LessThan0~45 ; |comparador|LessThan0~45 ; out0             ;
+; |comparador|LessThan0~46 ; |comparador|LessThan0~46 ; out0             ;
+; |comparador|LessThan0~47 ; |comparador|LessThan0~47 ; out0             ;
+; |comparador|LessThan0~48 ; |comparador|LessThan0~48 ; out0             ;
+; |comparador|LessThan0~49 ; |comparador|LessThan0~49 ; out0             ;
+; |comparador|LessThan0~50 ; |comparador|LessThan0~50 ; out0             ;
+; |comparador|LessThan0~51 ; |comparador|LessThan0~51 ; out0             ;
+; |comparador|LessThan0~52 ; |comparador|LessThan0~52 ; out0             ;
+; |comparador|LessThan0~53 ; |comparador|LessThan0~53 ; out0             ;
+; |comparador|LessThan0~54 ; |comparador|LessThan0~54 ; out0             ;
+; |comparador|LessThan0~55 ; |comparador|LessThan0~55 ; out0             ;
+; |comparador|LessThan0~56 ; |comparador|LessThan0~56 ; out0             ;
+; |comparador|LessThan0~57 ; |comparador|LessThan0~57 ; out0             ;
+; |comparador|LessThan0~58 ; |comparador|LessThan0~58 ; out0             ;
+; |comparador|LessThan0~59 ; |comparador|LessThan0~59 ; out0             ;
+; |comparador|LessThan0~60 ; |comparador|LessThan0~60 ; out0             ;
+; |comparador|LessThan1~0  ; |comparador|LessThan1~0  ; out0             ;
+; |comparador|LessThan1~1  ; |comparador|LessThan1~1  ; out0             ;
+; |comparador|LessThan1~2  ; |comparador|LessThan1~2  ; out0             ;
+; |comparador|LessThan1~3  ; |comparador|LessThan1~3  ; out0             ;
+; |comparador|LessThan1~4  ; |comparador|LessThan1~4  ; out0             ;
+; |comparador|LessThan1~5  ; |comparador|LessThan1~5  ; out0             ;
+; |comparador|LessThan1~6  ; |comparador|LessThan1~6  ; out0             ;
+; |comparador|LessThan1~7  ; |comparador|LessThan1~7  ; out0             ;
+; |comparador|LessThan1~8  ; |comparador|LessThan1~8  ; out0             ;
+; |comparador|LessThan1~9  ; |comparador|LessThan1~9  ; out0             ;
+; |comparador|LessThan1~10 ; |comparador|LessThan1~10 ; out0             ;
+; |comparador|LessThan1~11 ; |comparador|LessThan1~11 ; out0             ;
+; |comparador|LessThan1~12 ; |comparador|LessThan1~12 ; out0             ;
+; |comparador|LessThan1~13 ; |comparador|LessThan1~13 ; out0             ;
+; |comparador|LessThan1~14 ; |comparador|LessThan1~14 ; out0             ;
+; |comparador|LessThan1~15 ; |comparador|LessThan1~15 ; out0             ;
+; |comparador|LessThan1~16 ; |comparador|LessThan1~16 ; out0             ;
+; |comparador|LessThan1~17 ; |comparador|LessThan1~17 ; out0             ;
+; |comparador|LessThan1~18 ; |comparador|LessThan1~18 ; out0             ;
+; |comparador|LessThan1~19 ; |comparador|LessThan1~19 ; out0             ;
+; |comparador|LessThan1~20 ; |comparador|LessThan1~20 ; out0             ;
+; |comparador|LessThan1~21 ; |comparador|LessThan1~21 ; out0             ;
+; |comparador|LessThan1~22 ; |comparador|LessThan1~22 ; out0             ;
+; |comparador|LessThan1~23 ; |comparador|LessThan1~23 ; out0             ;
+; |comparador|LessThan1~24 ; |comparador|LessThan1~24 ; out0             ;
+; |comparador|LessThan1~25 ; |comparador|LessThan1~25 ; out0             ;
+; |comparador|LessThan1~26 ; |comparador|LessThan1~26 ; out0             ;
+; |comparador|LessThan1~27 ; |comparador|LessThan1~27 ; out0             ;
+; |comparador|LessThan1~28 ; |comparador|LessThan1~28 ; out0             ;
+; |comparador|LessThan1~29 ; |comparador|LessThan1~29 ; out0             ;
+; |comparador|LessThan1~30 ; |comparador|LessThan1~30 ; out0             ;
+; |comparador|LessThan1~31 ; |comparador|LessThan1~31 ; out0             ;
+; |comparador|LessThan1~32 ; |comparador|LessThan1~32 ; out0             ;
+; |comparador|LessThan1~33 ; |comparador|LessThan1~33 ; out0             ;
+; |comparador|LessThan1~34 ; |comparador|LessThan1~34 ; out0             ;
+; |comparador|LessThan1~35 ; |comparador|LessThan1~35 ; out0             ;
+; |comparador|LessThan1~36 ; |comparador|LessThan1~36 ; out0             ;
+; |comparador|LessThan1~37 ; |comparador|LessThan1~37 ; out0             ;
+; |comparador|LessThan1~38 ; |comparador|LessThan1~38 ; out0             ;
+; |comparador|LessThan1~39 ; |comparador|LessThan1~39 ; out0             ;
+; |comparador|LessThan1~40 ; |comparador|LessThan1~40 ; out0             ;
+; |comparador|LessThan1~41 ; |comparador|LessThan1~41 ; out0             ;
+; |comparador|LessThan1~42 ; |comparador|LessThan1~42 ; out0             ;
+; |comparador|LessThan1~43 ; |comparador|LessThan1~43 ; out0             ;
+; |comparador|LessThan1~44 ; |comparador|LessThan1~44 ; out0             ;
+; |comparador|LessThan1~45 ; |comparador|LessThan1~45 ; out0             ;
+; |comparador|LessThan1~46 ; |comparador|LessThan1~46 ; out0             ;
+; |comparador|LessThan1~47 ; |comparador|LessThan1~47 ; out0             ;
+; |comparador|LessThan1~48 ; |comparador|LessThan1~48 ; out0             ;
+; |comparador|LessThan1~49 ; |comparador|LessThan1~49 ; out0             ;
+; |comparador|LessThan1~50 ; |comparador|LessThan1~50 ; out0             ;
+; |comparador|LessThan1~51 ; |comparador|LessThan1~51 ; out0             ;
+; |comparador|LessThan1~52 ; |comparador|LessThan1~52 ; out0             ;
+; |comparador|LessThan1~53 ; |comparador|LessThan1~53 ; out0             ;
+; |comparador|LessThan1~54 ; |comparador|LessThan1~54 ; out0             ;
+; |comparador|LessThan1~55 ; |comparador|LessThan1~55 ; out0             ;
+; |comparador|LessThan1~56 ; |comparador|LessThan1~56 ; out0             ;
+; |comparador|LessThan1~57 ; |comparador|LessThan1~57 ; out0             ;
+; |comparador|LessThan1~58 ; |comparador|LessThan1~58 ; out0             ;
+; |comparador|LessThan1~59 ; |comparador|LessThan1~59 ; out0             ;
+; |comparador|LessThan1~60 ; |comparador|LessThan1~60 ; out0             ;
+; |comparador|Equal0~0     ; |comparador|Equal0~0     ; out0             ;
+; |comparador|Equal0~1     ; |comparador|Equal0~1     ; out0             ;
+; |comparador|Equal0~2     ; |comparador|Equal0~2     ; out0             ;
+; |comparador|Equal0~3     ; |comparador|Equal0~3     ; out0             ;
+; |comparador|Equal0~4     ; |comparador|Equal0~4     ; out0             ;
+; |comparador|Equal0~5     ; |comparador|Equal0~5     ; out0             ;
+; |comparador|Equal0~6     ; |comparador|Equal0~6     ; out0             ;
+; |comparador|Equal0~7     ; |comparador|Equal0~7     ; out0             ;
+; |comparador|Equal0~8     ; |comparador|Equal0~8     ; out0             ;
+; |comparador|Equal0~9     ; |comparador|Equal0~9     ; out0             ;
+; |comparador|Equal0~10    ; |comparador|Equal0~10    ; out0             ;
+; |comparador|Equal0~11    ; |comparador|Equal0~11    ; out0             ;
+; |comparador|Equal0~12    ; |comparador|Equal0~12    ; out0             ;
+; |comparador|Equal0~13    ; |comparador|Equal0~13    ; out0             ;
+; |comparador|Equal0~14    ; |comparador|Equal0~14    ; out0             ;
+; |comparador|Equal0~15    ; |comparador|Equal0~15    ; out0             ;
+; |comparador|Equal0~16    ; |comparador|Equal0~16    ; out0             ;
++--------------------------+--------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                               ;
++--------------------------+--------------------------+------------------+
+; Node Name                ; Output Port Name         ; Output Port Type ;
++--------------------------+--------------------------+------------------+
+; |comparador|saida~0      ; |comparador|saida~0      ; out              ;
+; |comparador|saida~1      ; |comparador|saida~1      ; out              ;
+; |comparador|saida~2      ; |comparador|saida~2      ; out              ;
+; |comparador|A[0]         ; |comparador|A[0]         ; out              ;
+; |comparador|A[1]         ; |comparador|A[1]         ; out              ;
+; |comparador|A[2]         ; |comparador|A[2]         ; out              ;
+; |comparador|A[3]         ; |comparador|A[3]         ; out              ;
+; |comparador|A[4]         ; |comparador|A[4]         ; out              ;
+; |comparador|A[5]         ; |comparador|A[5]         ; out              ;
+; |comparador|A[6]         ; |comparador|A[6]         ; out              ;
+; |comparador|A[7]         ; |comparador|A[7]         ; out              ;
+; |comparador|A[8]         ; |comparador|A[8]         ; out              ;
+; |comparador|A[9]         ; |comparador|A[9]         ; out              ;
+; |comparador|A[10]        ; |comparador|A[10]        ; out              ;
+; |comparador|A[11]        ; |comparador|A[11]        ; out              ;
+; |comparador|A[12]        ; |comparador|A[12]        ; out              ;
+; |comparador|A[13]        ; |comparador|A[13]        ; out              ;
+; |comparador|A[14]        ; |comparador|A[14]        ; out              ;
+; |comparador|A[15]        ; |comparador|A[15]        ; out              ;
+; |comparador|B[0]         ; |comparador|B[0]         ; out              ;
+; |comparador|B[1]         ; |comparador|B[1]         ; out              ;
+; |comparador|B[2]         ; |comparador|B[2]         ; out              ;
+; |comparador|B[3]         ; |comparador|B[3]         ; out              ;
+; |comparador|B[4]         ; |comparador|B[4]         ; out              ;
+; |comparador|B[5]         ; |comparador|B[5]         ; out              ;
+; |comparador|B[6]         ; |comparador|B[6]         ; out              ;
+; |comparador|B[7]         ; |comparador|B[7]         ; out              ;
+; |comparador|B[8]         ; |comparador|B[8]         ; out              ;
+; |comparador|B[9]         ; |comparador|B[9]         ; out              ;
+; |comparador|B[10]        ; |comparador|B[10]        ; out              ;
+; |comparador|B[11]        ; |comparador|B[11]        ; out              ;
+; |comparador|B[12]        ; |comparador|B[12]        ; out              ;
+; |comparador|B[13]        ; |comparador|B[13]        ; out              ;
+; |comparador|B[14]        ; |comparador|B[14]        ; out              ;
+; |comparador|B[15]        ; |comparador|B[15]        ; out              ;
+; |comparador|saida[0]     ; |comparador|saida[0]     ; pin_out          ;
+; |comparador|saida[1]     ; |comparador|saida[1]     ; pin_out          ;
+; |comparador|LessThan0~0  ; |comparador|LessThan0~0  ; out0             ;
+; |comparador|LessThan0~1  ; |comparador|LessThan0~1  ; out0             ;
+; |comparador|LessThan0~2  ; |comparador|LessThan0~2  ; out0             ;
+; |comparador|LessThan0~3  ; |comparador|LessThan0~3  ; out0             ;
+; |comparador|LessThan0~4  ; |comparador|LessThan0~4  ; out0             ;
+; |comparador|LessThan0~5  ; |comparador|LessThan0~5  ; out0             ;
+; |comparador|LessThan0~6  ; |comparador|LessThan0~6  ; out0             ;
+; |comparador|LessThan0~7  ; |comparador|LessThan0~7  ; out0             ;
+; |comparador|LessThan0~8  ; |comparador|LessThan0~8  ; out0             ;
+; |comparador|LessThan0~9  ; |comparador|LessThan0~9  ; out0             ;
+; |comparador|LessThan0~10 ; |comparador|LessThan0~10 ; out0             ;
+; |comparador|LessThan0~11 ; |comparador|LessThan0~11 ; out0             ;
+; |comparador|LessThan0~12 ; |comparador|LessThan0~12 ; out0             ;
+; |comparador|LessThan0~13 ; |comparador|LessThan0~13 ; out0             ;
+; |comparador|LessThan0~14 ; |comparador|LessThan0~14 ; out0             ;
+; |comparador|LessThan0~15 ; |comparador|LessThan0~15 ; out0             ;
+; |comparador|LessThan0~16 ; |comparador|LessThan0~16 ; out0             ;
+; |comparador|LessThan0~17 ; |comparador|LessThan0~17 ; out0             ;
+; |comparador|LessThan0~18 ; |comparador|LessThan0~18 ; out0             ;
+; |comparador|LessThan0~19 ; |comparador|LessThan0~19 ; out0             ;
+; |comparador|LessThan0~20 ; |comparador|LessThan0~20 ; out0             ;
+; |comparador|LessThan0~21 ; |comparador|LessThan0~21 ; out0             ;
+; |comparador|LessThan0~22 ; |comparador|LessThan0~22 ; out0             ;
+; |comparador|LessThan0~23 ; |comparador|LessThan0~23 ; out0             ;
+; |comparador|LessThan0~24 ; |comparador|LessThan0~24 ; out0             ;
+; |comparador|LessThan0~25 ; |comparador|LessThan0~25 ; out0             ;
+; |comparador|LessThan0~26 ; |comparador|LessThan0~26 ; out0             ;
+; |comparador|LessThan0~27 ; |comparador|LessThan0~27 ; out0             ;
+; |comparador|LessThan0~28 ; |comparador|LessThan0~28 ; out0             ;
+; |comparador|LessThan0~29 ; |comparador|LessThan0~29 ; out0             ;
+; |comparador|LessThan0~30 ; |comparador|LessThan0~30 ; out0             ;
+; |comparador|LessThan0~31 ; |comparador|LessThan0~31 ; out0             ;
+; |comparador|LessThan0~32 ; |comparador|LessThan0~32 ; out0             ;
+; |comparador|LessThan0~33 ; |comparador|LessThan0~33 ; out0             ;
+; |comparador|LessThan0~34 ; |comparador|LessThan0~34 ; out0             ;
+; |comparador|LessThan0~35 ; |comparador|LessThan0~35 ; out0             ;
+; |comparador|LessThan0~36 ; |comparador|LessThan0~36 ; out0             ;
+; |comparador|LessThan0~37 ; |comparador|LessThan0~37 ; out0             ;
+; |comparador|LessThan0~38 ; |comparador|LessThan0~38 ; out0             ;
+; |comparador|LessThan0~39 ; |comparador|LessThan0~39 ; out0             ;
+; |comparador|LessThan0~40 ; |comparador|LessThan0~40 ; out0             ;
+; |comparador|LessThan0~41 ; |comparador|LessThan0~41 ; out0             ;
+; |comparador|LessThan0~42 ; |comparador|LessThan0~42 ; out0             ;
+; |comparador|LessThan0~43 ; |comparador|LessThan0~43 ; out0             ;
+; |comparador|LessThan0~44 ; |comparador|LessThan0~44 ; out0             ;
+; |comparador|LessThan0~45 ; |comparador|LessThan0~45 ; out0             ;
+; |comparador|LessThan0~46 ; |comparador|LessThan0~46 ; out0             ;
+; |comparador|LessThan0~47 ; |comparador|LessThan0~47 ; out0             ;
+; |comparador|LessThan0~48 ; |comparador|LessThan0~48 ; out0             ;
+; |comparador|LessThan0~49 ; |comparador|LessThan0~49 ; out0             ;
+; |comparador|LessThan0~50 ; |comparador|LessThan0~50 ; out0             ;
+; |comparador|LessThan0~51 ; |comparador|LessThan0~51 ; out0             ;
+; |comparador|LessThan0~52 ; |comparador|LessThan0~52 ; out0             ;
+; |comparador|LessThan0~53 ; |comparador|LessThan0~53 ; out0             ;
+; |comparador|LessThan0~54 ; |comparador|LessThan0~54 ; out0             ;
+; |comparador|LessThan0~55 ; |comparador|LessThan0~55 ; out0             ;
+; |comparador|LessThan0~56 ; |comparador|LessThan0~56 ; out0             ;
+; |comparador|LessThan0~57 ; |comparador|LessThan0~57 ; out0             ;
+; |comparador|LessThan0~58 ; |comparador|LessThan0~58 ; out0             ;
+; |comparador|LessThan0~59 ; |comparador|LessThan0~59 ; out0             ;
+; |comparador|LessThan0~60 ; |comparador|LessThan0~60 ; out0             ;
+; |comparador|LessThan1~0  ; |comparador|LessThan1~0  ; out0             ;
+; |comparador|LessThan1~1  ; |comparador|LessThan1~1  ; out0             ;
+; |comparador|LessThan1~2  ; |comparador|LessThan1~2  ; out0             ;
+; |comparador|LessThan1~3  ; |comparador|LessThan1~3  ; out0             ;
+; |comparador|LessThan1~4  ; |comparador|LessThan1~4  ; out0             ;
+; |comparador|LessThan1~5  ; |comparador|LessThan1~5  ; out0             ;
+; |comparador|LessThan1~6  ; |comparador|LessThan1~6  ; out0             ;
+; |comparador|LessThan1~7  ; |comparador|LessThan1~7  ; out0             ;
+; |comparador|LessThan1~8  ; |comparador|LessThan1~8  ; out0             ;
+; |comparador|LessThan1~9  ; |comparador|LessThan1~9  ; out0             ;
+; |comparador|LessThan1~10 ; |comparador|LessThan1~10 ; out0             ;
+; |comparador|LessThan1~11 ; |comparador|LessThan1~11 ; out0             ;
+; |comparador|LessThan1~12 ; |comparador|LessThan1~12 ; out0             ;
+; |comparador|LessThan1~13 ; |comparador|LessThan1~13 ; out0             ;
+; |comparador|LessThan1~14 ; |comparador|LessThan1~14 ; out0             ;
+; |comparador|LessThan1~15 ; |comparador|LessThan1~15 ; out0             ;
+; |comparador|LessThan1~16 ; |comparador|LessThan1~16 ; out0             ;
+; |comparador|LessThan1~17 ; |comparador|LessThan1~17 ; out0             ;
+; |comparador|LessThan1~18 ; |comparador|LessThan1~18 ; out0             ;
+; |comparador|LessThan1~19 ; |comparador|LessThan1~19 ; out0             ;
+; |comparador|LessThan1~20 ; |comparador|LessThan1~20 ; out0             ;
+; |comparador|LessThan1~21 ; |comparador|LessThan1~21 ; out0             ;
+; |comparador|LessThan1~22 ; |comparador|LessThan1~22 ; out0             ;
+; |comparador|LessThan1~23 ; |comparador|LessThan1~23 ; out0             ;
+; |comparador|LessThan1~24 ; |comparador|LessThan1~24 ; out0             ;
+; |comparador|LessThan1~25 ; |comparador|LessThan1~25 ; out0             ;
+; |comparador|LessThan1~26 ; |comparador|LessThan1~26 ; out0             ;
+; |comparador|LessThan1~27 ; |comparador|LessThan1~27 ; out0             ;
+; |comparador|LessThan1~28 ; |comparador|LessThan1~28 ; out0             ;
+; |comparador|LessThan1~29 ; |comparador|LessThan1~29 ; out0             ;
+; |comparador|LessThan1~30 ; |comparador|LessThan1~30 ; out0             ;
+; |comparador|LessThan1~31 ; |comparador|LessThan1~31 ; out0             ;
+; |comparador|LessThan1~32 ; |comparador|LessThan1~32 ; out0             ;
+; |comparador|LessThan1~33 ; |comparador|LessThan1~33 ; out0             ;
+; |comparador|LessThan1~34 ; |comparador|LessThan1~34 ; out0             ;
+; |comparador|LessThan1~35 ; |comparador|LessThan1~35 ; out0             ;
+; |comparador|LessThan1~36 ; |comparador|LessThan1~36 ; out0             ;
+; |comparador|LessThan1~37 ; |comparador|LessThan1~37 ; out0             ;
+; |comparador|LessThan1~38 ; |comparador|LessThan1~38 ; out0             ;
+; |comparador|LessThan1~39 ; |comparador|LessThan1~39 ; out0             ;
+; |comparador|LessThan1~40 ; |comparador|LessThan1~40 ; out0             ;
+; |comparador|LessThan1~41 ; |comparador|LessThan1~41 ; out0             ;
+; |comparador|LessThan1~42 ; |comparador|LessThan1~42 ; out0             ;
+; |comparador|LessThan1~43 ; |comparador|LessThan1~43 ; out0             ;
+; |comparador|LessThan1~44 ; |comparador|LessThan1~44 ; out0             ;
+; |comparador|LessThan1~45 ; |comparador|LessThan1~45 ; out0             ;
+; |comparador|LessThan1~46 ; |comparador|LessThan1~46 ; out0             ;
+; |comparador|LessThan1~47 ; |comparador|LessThan1~47 ; out0             ;
+; |comparador|LessThan1~48 ; |comparador|LessThan1~48 ; out0             ;
+; |comparador|LessThan1~49 ; |comparador|LessThan1~49 ; out0             ;
+; |comparador|LessThan1~50 ; |comparador|LessThan1~50 ; out0             ;
+; |comparador|LessThan1~51 ; |comparador|LessThan1~51 ; out0             ;
+; |comparador|LessThan1~52 ; |comparador|LessThan1~52 ; out0             ;
+; |comparador|LessThan1~53 ; |comparador|LessThan1~53 ; out0             ;
+; |comparador|LessThan1~54 ; |comparador|LessThan1~54 ; out0             ;
+; |comparador|LessThan1~55 ; |comparador|LessThan1~55 ; out0             ;
+; |comparador|LessThan1~56 ; |comparador|LessThan1~56 ; out0             ;
+; |comparador|LessThan1~57 ; |comparador|LessThan1~57 ; out0             ;
+; |comparador|LessThan1~58 ; |comparador|LessThan1~58 ; out0             ;
+; |comparador|LessThan1~59 ; |comparador|LessThan1~59 ; out0             ;
+; |comparador|LessThan1~60 ; |comparador|LessThan1~60 ; out0             ;
+; |comparador|Equal0~0     ; |comparador|Equal0~0     ; out0             ;
+; |comparador|Equal0~1     ; |comparador|Equal0~1     ; out0             ;
+; |comparador|Equal0~2     ; |comparador|Equal0~2     ; out0             ;
+; |comparador|Equal0~3     ; |comparador|Equal0~3     ; out0             ;
+; |comparador|Equal0~4     ; |comparador|Equal0~4     ; out0             ;
+; |comparador|Equal0~5     ; |comparador|Equal0~5     ; out0             ;
+; |comparador|Equal0~6     ; |comparador|Equal0~6     ; out0             ;
+; |comparador|Equal0~7     ; |comparador|Equal0~7     ; out0             ;
+; |comparador|Equal0~8     ; |comparador|Equal0~8     ; out0             ;
+; |comparador|Equal0~9     ; |comparador|Equal0~9     ; out0             ;
+; |comparador|Equal0~10    ; |comparador|Equal0~10    ; out0             ;
+; |comparador|Equal0~11    ; |comparador|Equal0~11    ; out0             ;
+; |comparador|Equal0~12    ; |comparador|Equal0~12    ; out0             ;
+; |comparador|Equal0~13    ; |comparador|Equal0~13    ; out0             ;
+; |comparador|Equal0~14    ; |comparador|Equal0~14    ; out0             ;
+; |comparador|Equal0~15    ; |comparador|Equal0~15    ; out0             ;
+; |comparador|Equal0~16    ; |comparador|Equal0~16    ; out0             ;
++--------------------------+--------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Simulator
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon May 03 09:54:51 2021
+Info: Command: quartus_sim --simulation_results_format=VWF comparador -c comparador
+Info (324025): Using vector source file "C:/Users/Matheus Victor/Desktop/projeto/microgeral/datapath/comparador/Waveform.vwf"
+Info (310003): Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info (310004): Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info (310002): Simulation partitioned into 1 sub-simulations
+Info (328053): Simulation coverage is       0.00 %
+Info (328052): Number of transitions in simulation is 0
+Info (324045): Vector file comparador.sim.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II 64-Bit Simulator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4440 megabytes
+    Info: Processing ended: Mon May 03 09:54:51 2021
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+
